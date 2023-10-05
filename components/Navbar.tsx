@@ -18,7 +18,7 @@ const navIcons = [
 
 const Navbar = () => {
     return (
-        <header className='w-full'>
+        <header className='w-full border-teal-500 border-b-[1px]'>
             <nav className='flex justify-between items-center'>
                 <Link href='/' className='flex items-center nav_link w-fit gap-1'>
                     <div className='w-12 h-12'>
@@ -29,7 +29,7 @@ const Navbar = () => {
                             height={500}
                         />
                     </div>
-                    <p className='hover:text-teal-500'>Price <span className='text-red-500 hover:text-white'>Poll</span></p>
+                    <p className='hover:text-teal-500 text-2xl'>Price <span className='text-red-500 hover:text-white'>Poll</span></p>
                 </Link>
                 <div className='flex items-center gap-2 sm:gap-5 m-2'>
                     {navIcons.map((icon,index) => (
