@@ -21,7 +21,7 @@ const Navbar = () => {
         <header className='w-full border-teal-500 border-b-[1px]'>
             <nav className='flex justify-between items-center'>
                 <Link href='/' className='flex items-center nav_link w-fit gap-1'>
-                    <div className='w-12 h-12'>
+                    <div className='w-12 h-12 animate-spinSlow'>
                         <Image
                             src='/assets/images/logo.png'
                             alt='home_logo'
