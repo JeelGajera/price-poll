@@ -27,7 +27,7 @@ const Home = () => {
           />
         </div>
       </section>
-      <div className='flex sm:hidden justify-center items-center'>
+      <div className='flex sm:hidden justify-center items-center mb-12'>
         <HeroCarousel i={2} />
       </div>
     </>

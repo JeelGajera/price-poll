@@ -27,6 +27,7 @@ const config: Config = {
       },
       animation: {
         pulseSlow: "pulse 5s infinite",
+        spinSlow2: "spin 3s linear infinite",
         spinSlow: "spin 60s linear infinite",
         pingSlow: "ping 4s cubic-bezier(0, 0, 0.4, 1) infinite",
         bounce: "bounce 2.5s infinite",
