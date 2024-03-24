@@ -2,7 +2,7 @@
 
 import axios from "axios";
 import * as cheerio from "cheerio";
-import { extractCurrencies, extractPrice } from "../utils";
+import { extractCurrency, extractDescription, extractPrice } from "../utils";
 
 export async function scarapeAmazonProduct(url: string) {
   if (!url) return;
@@ -48,13 +48,31 @@ export async function scarapeAmazonProduct(url: string) {
 
     const imageUrl = Object.keys(JSON.parse(images));
 
-    const currency = extractCurrencies(
+    const currency = extractCurrency(
         $('.a-price-symbol'),
     );
 
     const discountRate = $('.savingsPercentage').text().replace(/[-%]/g,"");
 
+    const description = extractDescription($)
+
     // Cunstruction of Data Object for scraped info 
+    const data = {
+      url,
+      title,
+      currentPrice: Number(currentPrice) || Number(originalPrice),
+      originalPrice: Number(originalPrice) || Number(currentPrice),
+      discountRate: Number(discountRate),
+      currency: currency || '₹',
+      image: imageUrl[0],
+      isOutOfStock: outOfStock,
+      priceHistory: [],
+      category: 'electronics',
+      reviewsCount: 100,
+      starts: 4.3,
+      description: description,
+    }
+    console.log(data);
   } catch (error: any) {
     throw new Error(`Failed to scape product: ${error.message}`);
   }
