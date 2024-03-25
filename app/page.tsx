@@ -2,8 +2,12 @@ import HeroCarousel from '@/components/HeroCarousel'
 import SearchBar from '@/components/SearchBar'
 import Image from 'next/image'
 import React from 'react'
+import { getAllProducts } from '@/lib/actions'
+import TrandingProductCard from '@/components/TrendingProductCard'
+import { Product } from '@/types'
 
-const Home = () => {
+const Home = async () => {
+  const allProducts = (await getAllProducts()).slice(0, 5)
   return (
     <>
       <section id='animated_section' className='flex flex-col sm:flex-row justify-center items-center gap-8 mb-10 h-96 overflow-hidden'>
@@ -30,6 +34,14 @@ const Home = () => {
       <div className='flex sm:hidden justify-center items-center mb-12'>
         <HeroCarousel i={2} />
       </div>
+      <section className='mb-5 p-4 bg-slate-600 bg-opacity-10 flex flex-col justify-center items-center gap-4 '>
+          <h2 className='text-2xl font-semibold'>Popular Products 🚀</h2>
+          <div className='h-fit grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'>
+            {allProducts.map((product: Product) => (
+              <TrandingProductCard product={product} />
+            ))}
+          </div>
+      </section>
     </>
   )
 }

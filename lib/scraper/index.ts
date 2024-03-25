@@ -31,6 +31,10 @@ export async function scarapeAmazonProduct(url: string) {
     const currentPrice = extractPrice(
       $(
         ".a-price.aok-align-center.reinventPricePriceToPayMargin.priceToPay span.a-offscreen"
+      ),
+      $(".a-price.a-text-price.a-size-medium.apexPriceToPay span.a-offscreen"),
+      $(
+        ".a-price.aok-align-center.reinventPricePriceToPayMargin.priceToPay span.a-price-whole"
       )
     );
 
@@ -71,8 +75,12 @@ export async function scarapeAmazonProduct(url: string) {
       reviewsCount: 100,
       starts: 4.3,
       description: description,
+      lowestPrice: Number(currentPrice) || Number(originalPrice),
+      heighestPrice: Number(originalPrice) || Number(currentPrice),
+      averagePrice: Number(currentPrice) || Number(originalPrice),
     }
-    console.log(data);
+    
+    return data;
   } catch (error: any) {
     throw new Error(`Failed to scape product: ${error.message}`);
   }

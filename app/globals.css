@@ -32,3 +32,8 @@ body::-webkit-scrollbar-thumb {
 .mirror-image{
   transform: scaleX(-1);
 }
+
+.carousel_img {
+  width: fit-content !important;
+  height: fit-content !important;
+}
