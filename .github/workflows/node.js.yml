@@ -27,8 +27,19 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - env:
+    - name: Set environment variables
+      run: echo "MONGODB_URI=${{ secrets.MONGODB_URI }}" >> $GITHUB_ENV
+      env:
         MONGODB_URI: ${{ secrets.MONGODB_URI }}
+    
+    - name: Set environment variables
+      run: echo "BRIGHT_DATA_USERNAME=${{ secrets.BRIGHT_DATA_USERNAME }}" >> $GITHUB_ENV
+      env:
         BRIGHT_DATA_USERNAME: ${{ secrets.BRIGHT_DATA_USERNAME }}
+
+    - name: Set environment variables
+      run: echo "BRIGHT_DATA_PASSWORD=${{ secrets.BRIGHT_DATA_PASSWORD }}" >> $GITHUB_ENV
+      env:
         BRIGHT_DATA_PASSWORD: ${{ secrets.BRIGHT_DATA_PASSWORD }}
+        
     - run: npm run build --if-present
