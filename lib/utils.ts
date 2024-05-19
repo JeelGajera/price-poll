@@ -1,4 +1,11 @@
+import { type ClassValue, clsx } from "clsx"
+import { twMerge } from "tailwind-merge"
 import { PriceHistoryItem, Product } from "@/types";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
 
 const Notification = {
   WELCOME: "WELCOME",
@@ -39,7 +46,7 @@ export function extractCurrency(element: any) {
 // Extracts description from two possible elements from amazon
 export function extractDescription($: any) {
   // these are possible elements holding description of the product
-  const selectors = [".a-unordered-list .a-list-item", ".a-expander-content p"];
+  const selectors = [".a-unordered-list .a-spacing-mini .a-list-item", ".a-expander-content p", ];
 
   for (const selector of selectors) {
     const elements = $(selector);

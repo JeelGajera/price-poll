@@ -59,7 +59,6 @@ export async function getProductById(productId: string) {
   }
 }
 
-
 export const getAllProducts = () => {
   try {
     connectToDB();

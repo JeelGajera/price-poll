@@ -1,11 +1,28 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     experimental: {
-        serverActions: true,
         serverComponentsExternalPackages: ['mongoose']
     },
     images: {
-        domains: ['m.media-amazon.com', 'm.media-amazon.in']
+        remotePatterns: [
+            {
+                protocol: "https",
+                hostname: "m.media-amazon.com",
+            },
+
+            {
+                protocol: "https",
+                hostname: "m.media-amazon.in",
+            },
+            {
+                protocol: "https",
+                hostname: "res.cloudinary.com",
+            },
+            {
+                protocol: "https",
+                hostname: "img.icons8.com",
+            }
+        ],
     }
 }
 

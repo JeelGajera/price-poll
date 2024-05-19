@@ -23,24 +23,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Script id='sr1' type='module' src='/assets/js/three.js' strategy='beforeInteractive' />
-        <Script id='sr2' type='module' src='/assets/js/three.module.js' strategy='beforeInteractive' />
+        <Script id='sr1' type='module' src='/assets/js/three.js' />
+        <Script id='sr2' type='module' src='/assets/js/three.module.js' />
         <Script id='sr3' src='/assets/js/p5.min.js' strategy='beforeInteractive' />
         <Script id='sr4' src="/assets/js/vanta.topology.min.js" strategy='beforeInteractive' />
-        <main className="max-w-10xl mx-auto">
-          <Navbar />
-          {children}
-          <ToastContainer
-            autoClose={5000}
-            hideProgressBar={false}
-            closeOnClick={true}
-            pauseOnHover={true}
-            draggable={true}
-            rtl={false}
-            pauseOnFocusLoss={true}
-            theme='dark'
-          />
-        </main>
+          <main className="max-w-10xl mx-auto">
+            <Navbar />
+            {children}
+            <ToastContainer
+              autoClose={5000}
+              hideProgressBar={false}
+              closeOnClick={true}
+              pauseOnHover={true}
+              draggable={true}
+              rtl={false}
+              pauseOnFocusLoss={true}
+              theme='dark'
+            />
+          </main>
         <Script
           id="animated"
           strategy='afterInteractive'

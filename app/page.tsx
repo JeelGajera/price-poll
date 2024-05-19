@@ -7,7 +7,7 @@ import TrandingProductCard from '@/components/TrendingProductCard'
 import { Product } from '@/types'
 
 const Home = async () => {
-  const allProducts = (await getAllProducts()).slice(0, 5)
+  const allProducts: Product[] = (await getAllProducts()).slice(0, 5)
   return (
     <>
       <section id='animated_section' className='flex flex-col sm:flex-row justify-center items-center gap-8 mb-10 h-96 overflow-hidden'>
@@ -16,7 +16,7 @@ const Home = async () => {
 
           <h1 className='text-3xl sm:text-4xl font-semibold'>Unleash the power of <span className='text-red-500'>Price&nbsp;Poll</span></h1>
           <p className='text-sm text-slate-300'>
-            Price Poll is your all-in-one price tracking solution. Whether you're hunting for electronics, fashion, appliances, or anything in between, PricePol has got you covered.
+            Price Poll is your all-in-one price tracking solution. Whether you are hunting for electronics, fashion, appliances, or anything in between, PricePol has got you covered.
           </p>
           <SearchBar />
         </div>
@@ -36,9 +36,9 @@ const Home = async () => {
       </div>
       <section className='mb-5 p-4 bg-slate-600 bg-opacity-10 flex flex-col justify-center items-center gap-4 '>
           <h2 className='text-2xl font-semibold'>Popular Products 🚀</h2>
-          <div className='h-fit grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5'>
+          <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4'>
             {allProducts.map((product: Product) => (
-              <TrandingProductCard product={product} />
+              <TrandingProductCard key={product._id} product={product} />
             ))}
           </div>
       </section>

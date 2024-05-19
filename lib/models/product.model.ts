@@ -19,6 +19,7 @@ const productSchema = new mongoose.Schema(
     averagePrice: { type: Number },
     discountRate: { type: Number },
     category: { type: String },
+    description: { type: String },
     reviewsCount: { type: Number },
     isOutOfStock: { type: Boolean, default: false },
     users: [
