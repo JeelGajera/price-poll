@@ -27,4 +27,8 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
+    - env:
+        MONGODB_URI: ${{ secrets.MONGODB_URI }}
+        BRIGHT_DATA_USERNAME: ${{ secrets.BRIGHT_DATA_USERNAME }}
+        BRIGHT_DATA_PASSWORD: ${{ secrets.BRIGHT_DATA_PASSWORD }}
     - run: npm run build --if-present
