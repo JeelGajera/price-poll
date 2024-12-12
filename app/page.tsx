@@ -7,7 +7,7 @@ import TrandingProductCard from '@/components/TrendingProductCard'
 import { Product } from '@/types'
 
 const Home = async () => {
-  const allProducts: Product[] = (await getAllProducts()).slice(0, 5)
+  const allProducts: Product[] = (await getAllProducts())
   return (
     <>
       <section id='animated_section' className='flex flex-col sm:flex-row justify-center items-center gap-8 mb-10 h-96 overflow-hidden'>
